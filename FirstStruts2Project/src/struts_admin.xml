@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+
+<struts>
+    <!--  Overwrite Convention -->
+    <!-- 
+    <constant name="struts.convention.action.suffix" value="Controller"/>
+    <constant name="struts.convention.action.mapAllMatches" value="true"/>
+    <constant name="struts.convention.default.parent.package" value="rest-showcase"/>
+
+    <constant name="struts.convention.package.locators" value="example"/>
+
+    <package name="rest-showcase" extends="rest-default">
+        <global-allowed-methods>index,show,create,update,destroy,deleteConfirm,edit,editNew</global-allowed-methods>
+    </package>
+    -->
+    
+    <!-- 管理Action——FristAction -->
+   	<!-- 管理包的配置 name:包的名字，extends:继承XML，namespaces:命名空间——访问action部分URL-->
+    <package name="admin" extends="struts-default" namespace="/admin">
+    	<!-- name:action的名字 -->
+    	<!-- result:跳转路径 -->
+    	<!-- method:action中的方法，只识别返回类型为String类型的方法 -->
+    	<action name="f1" class="action.FristAction" method="mymethod">
+    		<result name="nice">/FirstResult.jsp</result>
+    	</action>
+    </package>
+    
+</struts>

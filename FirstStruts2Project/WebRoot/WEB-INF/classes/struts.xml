@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+
+<struts>
+    
+    <!-- 常量配置：中文编码 -->
+    <constant name="struts.i18n.encoding" value="gb18030"/>
+    <!-- 设置识别资源文件的常量 -->
+    <constant name="struts.custom.i18n.resources" value="message"/>
+    <constant name="struts.custom.i18n.resources" value="login"/>
+    
+    <include file="struts_admin.xml"></include>
+    <include file="struts_customer.xml"></include>
+    <include file="struts_login.xml"></include>
+    <include file="struts_session.xml"></include>
+    <include file="struts-interceptor.xml"></include>
+    <include file="struts-tag.xml"></include>
+    <include file="struts-register.xml"></include>
+    <include file="struts-messagei18n.xml"></include>
+    <include file="struts-logini18n.xml"></include>
+</struts>

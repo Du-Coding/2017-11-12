@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+
+<struts>
+   <package name="interceptor" extends="struts-default" namespace="/">
+        <!-- 自定义拦截器 -->
+        <interceptors>
+            <interceptor name="replace" class="interceptor.MessageInterceptor"/>
+        </interceptors>
+        
+    	<action name="interceptor" class="action.MessageAction" >
+    	    <!-- 使用拦截器 -->
+    		<interceptor-ref name="defaultStack"/>
+    	    <interceptor-ref name="replace"/>
+    		<result name="success">/MessageResult.jsp</result>
+    	</action>
+    </package>
+    
+</struts>

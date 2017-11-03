@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC
+        "-//Apache Struts//XWork Validator 1.0.2//EN"
+        "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+<validators>
+	<!-- 对uname校验 -->
+	<field name="uname">
+       <field-validator type="requiredstring">
+	       <param name="trim">true</param>
+           <message>用户名不能为空。</message>
+      </field-validator>
+      <!-- <filed-validator type="strinflength">
+          <param name="trim">true</param>
+          <param name="minLength">4</param>
+          <param name="maxLength">10</param>
+          <message>用户名字符需要${minLength}-10位</message>
+      </filed-validator> -->
+      <field-validator type="regex">
+          <param name="trim">true</param>
+          <param name="regex">
+              <![CDATA[^[A-Za-z][a-zA-Z0-9_]{3,9}$]]>
+          </param>
+          <message>用户名格式错误</message>
+      </field-validator>
+   </field>
+   <!-- 对密码校验 --> 
+   <field name="pwd">
+       <field-validator type="requiredstring">
+	       <param name="trim">true</param>
+           <message>密码不能为空。</message>
+      </field-validator>
+      <!-- <filed-validator type="strinflength">
+          <param name="trim">true</param>
+          <param name="minLength">4</param>
+          <param name="maxLength">10</param>
+          <message>用户名字符需要${minLength}-10位</message>
+      </filed-validator> -->
+      <field-validator type="regex">
+          <param name="trim">true</param>
+          <param name="regex">
+              <![CDATA[^\w{5,16}$]]>
+          </param>
+          <message>密码格式错误</message>
+      </field-validator>
+   </field>
+   <!-- 重复密码校验 -->
+   <field name="repwd">
+       <field-validator type="requiredstring">
+	       <param name="trim">true</param>
+           <message>密码不能为空。</message>
+      </field-validator>
+      <field-validator type="fieldexpression">
+          <param name="expression">
+              <![CDATA[repwd == pwd]]>
+          </param>
+          <message>两次密码必须相同</message>
+      </field-validator>
+   </field>
+   <field name="email">
+       <field-validator type="requiredstring">
+	       <param name="trim">true</param>
+           <message>email不能为空。</message>
+      </field-validator>
+      <field-validator type="email">
+          <message>邮箱不符合要求</message>
+      </field-validator>
+   </field>
+   <field name="qq">
+       <field-validator type="requiredstring">
+	       <param name="trim">true</param>
+           <message>qq不能为空。</message>
+      </field-validator>
+      <field-validator type="regex">
+          <param name="trim">true</param>
+          <param name="regex">
+              <![CDATA[^\d{5,11}$]]>
+          </param>
+          <message>qq不符合要求</message>
+      </field-validator>
+   </field>
+   <field name="mobile">
+       <field-validator type="requiredstring">
+	       <param name="trim">true</param>
+           <message>电话不能为空。</message>
+      </field-validator>
+      <field-validator type="regex">
+          <param name="trim">true</param>
+          <param name="regex">
+              <![CDATA[^[1]\d{10}$]]>
+          </param>
+          <message>电话不符合要求</message>
+      </field-validator>
+   </field>
+</validators>
