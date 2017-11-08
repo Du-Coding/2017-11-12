@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" 
+> 
+<hibernate-mapping>
+    <class name="pojo.CategoryOne" table="CATEGORY">    <!-- 类对应一个表--> 
+        <id name="cid" column="CID">        
+           <generator class="identity"/>  <!-- 主键的生成策略-->
+        </id>
+        <property name="cname" column="CNAME" />
+        <!-- <one-to-one name="当前类中对方的属性" class="对方类的路径" property-ref="当前类在对方类中定义的属性"/> -->
+        <one-to-one name="bookone" class="pojo.BookOne" property-ref="categoryone" cascade="all"  />
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" 
+> 
+<hibernate-mapping>
+    <class name="pojo.Teacher" table="TEACHER">    <!-- 类对应一个表--> 
+        <id name="tid" column="TID">        
+           <generator class="assigned"/>  <!-- 主键的生成策略-->
+        </id>
+        <property name="tname" column="TNAME" />
+        <!-- <set  name="set属性名称" table="第三个对应的表名">
+            <key column= "本表在第三个对应表外键"/>
+            <many-to-many   class="另一个表对应的类"
+		           column="另一个表在第三个表中对应的外键" />
+      </set> -->
+      <set name="course" table="TC">
+      	<key column="tid"/>
+      	<many-to-many class="pojo.Course" column="cid"/>
+      </set>
+    </class>
+</hibernate-mapping>

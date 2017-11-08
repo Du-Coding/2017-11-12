@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" 
+> 
+<hibernate-mapping>
+    <class name="pojo.Header" table="HEADER">    <!-- 类对应一个表--> 
+        <id name="id" column="ID">        
+           <generator class="foreign">           <!-- 主键生策略 -->
+     	   <param name="property">school</param>
+   </generator>
+        </id>
+        <property name="hname" column="HNAME" />
+        <!--  -->
+        <one-to-one name="school" class="pojo.School" cascade="all"/>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" 
+> 
+<hibernate-mapping>
+    <class name="pojo.School" table="SCHOOL">    <!-- 类对应一个表--> 
+        <id name="id" column="ID">        
+           <generator class="assigned"/>  <!-- 主键的生成策略-->
+        </id>
+        <property name="sname" column="SNAME" />
+        <!-- constrained:当前主键存在一个外键的约束 
+        	 cascade：表示级联，删改查。
+        -->
+        <one-to-one name="header" class="pojo.Header" constrained="true" cascade="all" />
+    </class>
+</hibernate-mapping>
