@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<!-- 常量配置：中文编码 -->
+    <constant name="struts.i18n.encoding" value="gb18030"/>
+    
+    <package name="login" extends="struts-default" namespace="/">
+    	<action name="Users_login" class="action.UsersAction" method="login">
+    		<result name="success" type="chain">Users_findAll</result>
+    		<result name="input">/login.jsp</result>
+    	</action>
+    	<action name="Users_findAll" class="action.UsersAction" method="findAllUsers">
+    		<result name="success">/queryAllUsers.jsp</result>
+    	</action>
+    </package>
+</struts>
